@@ -1,33 +1,58 @@
-const gulp        = require('gulp');
-const browserSync = require('browser-sync');
-const sass        = require('gulp-sass')(require('sass'));
-const cleanCSS = require('gulp-clean-css');
-const autoprefixer = require('gulp-autoprefixer');
-const rename = require("gulp-rename");
+// Основной модуль
+import gulp from "gulp";
+//Импорт путей
+import { path } from "./gulp/config/path.js";
+//Импорт общих плагинов
+import { plugins } from "./gulp/config/plugins.js"
 
-gulp.task('server', function() {
+//Передаем значения в глобальную переменную
+global.app = {
+	isBuild: process.argv.includes('--build'),
+	isDev: !process.argv.includes('--build'),
+	path: path,
+	gulp: gulp,
+	plugins: plugins
+}
 
-    browserSync({
-        server: {
-            baseDir: "src"
-        }
-    });
+//Импорт задач
+import { copy } from "./gulp/tasks/copy.js";
+import { reset } from "./gulp/tasks/reset.js";
+import { html } from "./gulp/tasks/html.js";
+import { server } from "./gulp/tasks/server.js";
+import { scss } from "./gulp/tasks/scss.js";
+import { js } from "./gulp/tasks/js.js";
+import { images } from "./gulp/tasks/images.js";
+import { otfToTtf, ttfToWoff, fontsStyle} from "./gulp/tasks/fonts.js";
+import { svgSprive } from "./gulp/tasks/svgSprive.js";
+import { zip } from "./gulp/tasks/zip.js";
 
-    gulp.watch("src/*.html").on('change', browserSync.reload);
-});
 
-gulp.task('styles', function() {
-    return gulp.src("src/sass/**/*.+(scss|sass)")
-        .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
-        .pipe(rename({suffix: '.min', prefix: ''}))
-        .pipe(autoprefixer())
-        .pipe(cleanCSS({compatibility: 'ie8'}))
-        .pipe(gulp.dest("src/css"))
-        .pipe(browserSync.stream());
-});
+//Наблюдатель за изменениями в файлах
+function watcher () {
+	gulp.watch(path.watch.files, copy);
+	gulp.watch(path.watch.html, html);
+	gulp.watch(path.watch.scss, scss);
+	gulp.watch(path.watch.js, js);
+	gulp.watch(path.watch.images, images)
+}
 
-gulp.task('watch', function() {
-    gulp.watch("src/sass/**/*.+(scss|sass)", gulp.parallel('styles'));
-})
+export { svgSprive }
 
-gulp.task('default', gulp.parallel('watch', 'server', 'styles'));
+//Последовательная обработка шрифтов
+const fonts = gulp.series(otfToTtf, ttfToWoff, fontsStyle);
+
+//Основные задачи
+const mainTasks = gulp.series(fonts, gulp.parallel(copy, html, scss, js, images))
+
+//Построение сценариев выполнения задач
+const dev = gulp.series(reset, mainTasks, gulp.parallel(watcher, server));
+const build = gulp.series(reset, mainTasks);
+const deployZIP = gulp.series(reset, mainTasks, zip);
+
+//Экспорт сценариев
+export { dev }
+export { build }
+export { deployZIP }
+
+//Выполнение сценария по умолчанию
+gulp.task('default', dev);
