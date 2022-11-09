@@ -11,3 +11,13 @@
 		line-height: 54px;
 	}
 }
+
+@media (max-width: 575px) {
+	.title {
+		&_left {
+			font-size: 21px;
+			line-height: 42px;
+			text-align: center;
+		}
+	}
+}

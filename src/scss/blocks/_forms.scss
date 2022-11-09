@@ -14,3 +14,9 @@
 		border-radius: 5px;
 	}
 }
+
+@media (max-width: 575px) {
+	.feed-form {
+		margin: 36px auto 0 auto;
+	}
+}
