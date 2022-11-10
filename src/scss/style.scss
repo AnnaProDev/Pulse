@@ -6,8 +6,10 @@
 	min-width: 950px;
 	margin: 0 auto;
 }
+
 @import "base/variables";
 @import "base/null";
+@import "base/_slick";
 @import "blocks/promo";
 @import "blocks/header";
 @import "blocks/buttons";
@@ -15,5 +17,6 @@
 @import "blocks/titles";
 @import "blocks/consultation";
 @import "blocks/forms";
+@import "blocks/carousel";
 
 @import "base/media";

@@ -88,6 +88,14 @@
 			margin-top: 20px;
 		}
 	}
+	.carousel{
+		&__inner {
+			width: 100%;
+		}
+		img{ 
+			width: 100%;
+		}
+	}
 }
 
 @media (max-width: 575px) {
@@ -160,5 +168,12 @@
 			text-align: center;
 		}
 	}
-
+	.carousel{
+		&__inner {
+			width: 100%;
+		}
+		img{ 
+			width: 100%;
+		}
+	}
 }
