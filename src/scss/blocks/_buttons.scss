@@ -44,6 +44,9 @@
 
 @media (max-width: 576px){
 	.button {
+		&:hover {
+			box-shadow: none;
+		}
 		&__main {
 			width: 200px;
 			height: 45px;

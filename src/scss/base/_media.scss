@@ -157,6 +157,7 @@
 @media (max-width: 575px) {
 	.container {
 		min-width: 280px;
+		padding: 0 12px;
 	}
 	.header {
 		&__hidden320 {
