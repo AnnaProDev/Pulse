@@ -3,7 +3,7 @@
 }
 @media (max-width: 991px){
 	.container {
-		min-width: 720px;
+		min-width: 700px;
 	}
 	.promo {
 		padding-bottom: 73px;
@@ -30,17 +30,26 @@
 			font-size: 16px;
 		}
 		&__content {
-			justify-content: space-around;
+			justify-content: space-evenly;
 			}
 			&-item {
 				margin-right: 20px;
+		}
+	}
+	.footer {
+		&__addr {
+			font-size: 17px;
+		}
+		iframe {
+			width: 100%;
 		}
 	}
 }
 
 @media (max-width: 768px){
 	.container{
-		min-width: 560px;
+		min-width: 530px;
+		padding: 0px 10px;
 	}
 	.header {
 		&__logo {
@@ -62,7 +71,7 @@
 	}
 	.promo {
 		min-height: 600px;
-		padding: 20px 0 70px 0;
+		padding: 20px 10px 70px 10px;
 		&__wrapper {
 			margin-top: 70px;
 		}
@@ -102,24 +111,42 @@
 			font-size: 12px;
 			margin-top: 20px;
 		}
+	}	
+	.consultation {
+		padding: 80px 25px 72px 25px;
 	}
+
 	.carousel{
+		padding: 60px 20px 20px 20px;
 		&__inner {
 			width: 100%;
 		}
-		img{ 
+		img { 
 			width: 100%;
 		}
 	}
+	.catalog {
+		&__contect {
+			padding: 0 15px;
+		}
+		&__tabs {
+			margin-top: 50px;
+			padding: 0 10px;
+		}
+	}
 	.feed {
-		padding: 0px 15px 50px 15px;
 		&__item {
 			margin-top: 50px;
 		}
 		&__img {
-			width: 100%;
+			width: 50%;
+			height: 50%;
 			margin-right: 40px;
 		}
+		&__text {
+			padding:0 10px ;
+			max-width: 580px;
+			}
 		&__descr {
 			font-size: 14px;
 			line-height: 22px;
@@ -146,12 +173,17 @@
 	.promo {
 		min-height: 400px;
 		padding-bottom: 50px;
+		&__wrapper{
+			align-items: center;
+		}
 		&__header {
 			font-size: 20px;
 			line-height: 20px;
+			text-align: center;
 		}
 		&__subheader {
 			font-size: 14px;
+			text-align: center;
 		}
 		&__icons{
 			margin-top: 30px;
@@ -225,7 +257,7 @@
 			justify-content: space-around;
 		}
 		&-item {
-			margin-right: 20px;
+			margin-right: 0px;
 			min-height: 200px;
 			padding: 15px 20px 15px 20px;
 			margin-bottom: 10px;
@@ -269,12 +301,35 @@
 		}
 		&__text {
 			padding: 0 10px 0 10px;
-			margin-top: 10px;
+		}
+		&__subtitle {
+			margin-top: 15px;
 		}
 		&__descr {
 			font-size: 12px;
 			line-height: 22px;
 			margin-top: 10px;
+		}
+	}
+	.footer {
+		&__info {
+			height: 200px;
+			padding: 15px;
+		}
+		&__addr {
+			font-size: 16px;
+			margin-bottom: 28px;
+		}
+		&__phone {
+			font-size: 16px;
+			margin-bottom: 28px;
+		}
+		&__social {
+			width: 212px;
+		}
+		&__social-item {
+			width: 40px;
+			height: 40px;
 		}
 	}
 }
