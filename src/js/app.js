@@ -69,5 +69,38 @@ $(document).ready(function(){
 			$("#order .modal__descr").text($(".catalog-item__subtitle").eq(i).text());
 			$(".overlay, #order").fadeIn("slow");
 		})
-	})
+	});
+	
+	 //Validate 
+
+	function validateForms(form){
+		$(form).validate({
+			rules: {
+					name: {
+						required: true,
+						minlength: 2
+					},
+					phone: "required",
+					email: {
+						required: true,
+						email: true
+					}
+			},
+			messages: {
+					name: {
+						required: "Please specify your name",
+						minlength: jQuery.validator.format("Enter {0} symbols!")
+					},
+					phone: "Please specify your phone number",
+					email: {
+					required: "We need your email address to contact you",
+					email: "Your email address must be in the format of name@domain.com"
+					}
+			}
+		});
+	};
+
+	validateForms('#consultation-form');
+	validateForms('#consultant form');
+	validateForms('#order form');
 });

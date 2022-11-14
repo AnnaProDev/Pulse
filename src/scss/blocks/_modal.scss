@@ -42,6 +42,14 @@
 	&__mini {
 		min-height: 140px;
 	}
+	.error {
+		border: 1px solid red;
+	}
+	label.error {
+		border: none;
+		text-align: center;
+		margin-bottom: 10px;
+	}
 }
 
 #consultant, #order, #thanks {
@@ -50,7 +58,6 @@
 
 @media (max-width: 575px) {
 	.modal {
-		max-height: 250px;
 		width: 100%;
 		&__subtitle {
 			font-size: 16px;
