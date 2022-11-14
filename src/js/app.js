@@ -103,4 +103,27 @@ $(document).ready(function(){
 	validateForms('#consultation-form');
 	validateForms('#consultant form');
 	validateForms('#order form');
+
+	$('input[name=phone]').mask('(999) 999-9999')
+
+	//Smooth scroll and pageup
+	$(window).scroll(function(){
+		if ($(this).scrollTop() > 1600) {
+			$(".pageup").fadeIn();
+		} else {
+			$(".pageup").fadeOut();
+		}
+	});
+
+	$("a").on('click', function(event) {
+		if (this.hash !== "") {
+			event.preventDefault();
+			var hash = this.hash;
+			$('html, body').animate({
+				scrollTop: $(hash).offset().top
+			}, 800, function(){
+			window.location.hash = hash;
+			});
+		} 
+	});
 });
