@@ -10,3 +10,7 @@ The site is made according to the layout with Design systems Figma
 - CSS custom properties <br>
 - SCSS extension language
 - JavaScript
+<br>
+<br>
+Design file translated from Russian: <br>
+https://www.figma.com/file/zWtpNVgBT91sEg2li9JKBd/Pulse
