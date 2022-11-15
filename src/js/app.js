@@ -1,5 +1,8 @@
 import * as flsFunctions from "./modules/functions.js";
 import * as slick from "./slick.min.js";
+
+
+
 flsFunctions.isWebp();
 
 $(document).ready(function(){
@@ -126,4 +129,6 @@ $(document).ready(function(){
 			});
 		} 
 	});
+
+	AOS.init();
 });

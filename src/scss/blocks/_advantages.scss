@@ -25,9 +25,18 @@
 	text-align: center;
 	color: #0D0D0D;
 	margin-top: 26px;
-	a {
-		text-decoration: underline;
-		color: #FF0000;
+		a {
+			text-decoration: underline;
+			color: #FF0000;
+		}
 	}
+	&__icon {
+		&_animated {
+			animation: heartbeat 1.5s ease infinite;
+			&:hover {
+				animation-play-state: paused;
+			}
+		}
 	}
+
 }
