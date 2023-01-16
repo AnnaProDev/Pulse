@@ -1,7 +1,7 @@
 # Pulse
 PULSE
 
-Website for sail (HTML, CSS, SCSS and JS)
+Website for sale of a heart rate monitor (HTML, CSS, SCSS and JS)
 
 The site is made according to the layout with Design systems Figma 
 
